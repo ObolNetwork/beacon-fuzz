@@ -181,6 +181,31 @@ clean-prysm:
 	rm -rf workspace/gofuzz/*.libfuzzer
 
 #
+# Charon
+# https://github.com/ObolNetwork/charon
+#
+
+## Fuzzing of charon using docker.
+charon: build_cmd = $(BUILD_ENV) docker build \
+	--file docker/charon.Dockerfile \
+	--progress=plain \
+	-t eth2fuzz_charon \
+	. \
+	$(CACHE)
+charon:
+	$(build_cmd)
+	@echo 'USAGE: docker run -v $(WORKSPACE_DIR):/eth2fuzz/workspace eth2fuzz_charon list'
+
+## Fuzz all charon targets for 1 hour each
+fuzz-charon: charon
+	docker run -v $(WORKSPACE_DIR):/eth2fuzz/workspace eth2fuzz_charon continuously -q charon -t 3600
+
+## clean compiled fuzzing targets
+clean-charon:
+	# clean gofuzz libfuzzer
+	rm -rf workspace/gofuzz/*.libfuzzer
+
+#
 # Teku
 # https://github.com/PegaSysEng/teku
 #

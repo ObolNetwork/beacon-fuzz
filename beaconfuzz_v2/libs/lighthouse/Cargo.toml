@@ -10,4 +10,5 @@ edition = "2018"
 eth2_ssz = { path = "../../../../lighthouse/consensus/ssz/" }
 eth2_ssz_derive = { path = "../../../../lighthouse/consensus/ssz_derive/" }
 state_processing = { path = "../../../../lighthouse/consensus/state_processing/" }
+eth2_serde_utils = { path = "../../../../lighthouse/consensus/serde_utils" }
 types = { path = "../../../../lighthouse/consensus/types" }

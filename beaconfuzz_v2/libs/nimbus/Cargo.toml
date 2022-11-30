@@ -9,6 +9,7 @@ build = "build.rs"
 
 [dependencies]
 eth2_ssz = { path = "../../../../lighthouse/consensus/ssz/" }
+eth2_serde_utils = { path = "../../../../lighthouse/consensus/serde_utils" }
 eth2_ssz_derive = { path = "../../../../lighthouse/consensus/ssz_derive/" }
 state_processing = { path = "../../../../lighthouse/consensus/state_processing/" }
 types = { path = "../../../../lighthouse/consensus/types" }
